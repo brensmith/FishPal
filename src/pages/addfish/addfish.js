@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
 import { browserHistory } from 'react-router';
+const CLOUD_IMAGE_URL = 'https://api.cloudinary.com/v1_1/robzombie/image/upload';
+const CLOUD_IMAGE_PRESET = 'xqy4hb8x';
 var FId ;
 
 class AddFish extends Component {
@@ -14,6 +18,9 @@ class AddFish extends Component {
             {
           FId = (JSON.parse(localStorage.getItem('fishes'))[JSON.parse(localStorage.getItem('fishes')).length - 1].id) + 1;
             }
+        
+        
+
 
     super(props);
         
@@ -26,15 +33,45 @@ class AddFish extends Component {
             location: "Location",
             description: "Description",
             
-       },
-             
+      },
+          
+      uploadedFileCloudinaryUrl: ''
+          
     };
         
     this.submitFish = this.submitFish.bind(this);
-    
+    this.onImgDrop = this.onImgDrop.bind(this);
         
   }
     
+      
+
+  onImgDrop(files) {
+    this.setState({
+      uploadedFile: files[0]
+    });
+
+    this.handleImageUpload(files[0]);
+  }
+
+  handleImageUpload(file) {
+    let upload = request.post(CLOUD_IMAGE_URL)
+                        .field('upload_preset', CLOUD_IMAGE_PRESET)
+                        .field('file', file);
+
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
+
+      if (response.body.secure_url !== '') {
+        this.setState({
+          uploadedFileCloudinaryUrl: response.body.secure_url
+        });
+      }
+    });
+  }
+
   submitFish() {
     console.log('Submit Fish');
     console.log(this.species.value, this.weight.value, this.location.value, this.description.value);
@@ -45,7 +82,7 @@ class AddFish extends Component {
         newFish.weight = this.weight.value;
         newFish.location = this.location.value;
         newFish.description = this.description.value;
-        
+        newFish.image = this.state.uploadedFileCloudinaryUrl;
 
     this.setState({newFish});
 
@@ -83,8 +120,24 @@ class AddFish extends Component {
       <div className="row">
         <div className="col-md-6" id="fishform">
           <form>
+            <label htmlFor="dropzone">Add an Image</label>
+          <Dropzone
+            multiple={false}
+            accept="image/*"
+            onDrop={this.onImgDrop}>
+            <h5>Drop Image or Add Image via Click.</h5>
+          </Dropzone>
             <br>
-            </br>                      
+            </br>
+          <div>
+            {this.state.uploadedFileCloudinaryUrl === '' ? null :
+            <div>
+              <p>{this.state.uploadedFile.name}</p>
+              <img alt={this.state.uploadedFile.name} src={this.state.uploadedFileCloudinaryUrl} />
+            </div>}
+          </div>
+                   
+                                        
             <div className="form-group">
                <label htmlFor="Species">Species</label>
                   <select id="species" className="form-control" ref={(input)=> this.species = input}>
@@ -133,7 +186,7 @@ class AddFish extends Component {
                     placeholder="Enter a description" />
             </div>
 
-            <button type="button" onClick={this.submitFish} className="btn btn-default">Submit</button>
+            <button type="button" onClick={this.submitFish} className="btn btn-info">Submit</button>
           </form>
           <hr/>
       </div>

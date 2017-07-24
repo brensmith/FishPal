@@ -4,7 +4,6 @@ import './home.css';
 class Home extends Component {
 
   constructor(props) {
-
     super(props);
     
         this.state = {
@@ -25,18 +24,23 @@ class Home extends Component {
   }    
     
   displayFish() {
-                  let resultsArray = [];
-                    this.state.fishes.map((fish, i) => {
-                      resultsArray.push( 
-                            <div key={fish.id} className="row justify-content-start">
-                                  <div className="col-md-6">
-                                      <p>Species :{fish.species}</p>
-                                      <p>Weight in lbs :{fish.weight}</p>
-                                      <p>Location Caught :{fish.location}</p>
-                                      <p>Description :{fish.description}</p>
-                                      <hr></hr>
-                                  </div>
-                            </div>
+    let resultsArray = [];
+    this.state.fishes.map((fish, i) => {
+      resultsArray.push( 
+        <div key={fish.id} className="row justify-content-start">
+                  <div className="col-md-6">
+                      <p>Species :{fish.species}</p>
+                      <p>Weight in lbs :{fish.weight}</p>
+                      <p>Location Caught :{fish.location}</p>
+                      <p>Description :{fish.description}</p>
+                      
+                  <hr></hr>
+                  </div>
+                  <div className="col-md-4">
+                      <img className="img-responsive" src={fish.image} alt={fish.species} />
+                  </div>
+                  <br></br>
+        </div>
                       );
                   });
                   return resultsArray; 
