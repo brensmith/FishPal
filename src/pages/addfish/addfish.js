@@ -4,6 +4,8 @@ import request from 'superagent';
 import { browserHistory } from 'react-router';
 const CLOUD_IMAGE_URL = 'https://api.cloudinary.com/v1_1/robzombie/image/upload';
 const CLOUD_IMAGE_PRESET = 'xqy4hb8x';
+var moment = require('moment');
+var postdate = moment().format("DD-MM-YYYY");
 var FId ;
 
 class AddFish extends Component {
@@ -19,9 +21,6 @@ class AddFish extends Component {
           FId = (JSON.parse(localStorage.getItem('fishes'))[JSON.parse(localStorage.getItem('fishes')).length - 1].id) + 1;
             }
         
-        
-
-
     super(props);
         
     this.state = {
@@ -32,7 +31,7 @@ class AddFish extends Component {
             weight: "Weight",
             location: "Location",
             description: "Description",
-            
+            date: postdate,
       },
           
       uploadedFileCloudinaryUrl: ''
@@ -96,7 +95,7 @@ class AddFish extends Component {
                 }
         else
             {
-                console.log("Attention")
+                console.log("Alert")
                 alert("Please Fill The Required Fields");
 
             }

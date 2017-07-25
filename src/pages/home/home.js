@@ -33,7 +33,7 @@ class Home extends Component {
                       <p>Weight in lbs :{fish.weight}</p>
                       <p>Location Caught :{fish.location}</p>
                       <p>Description :{fish.description}</p>
-                      
+                      <p>Date Added : <small>{fish.date}</small></p>
                   <hr></hr>
                   </div>
                   <div className="col-md-4">
