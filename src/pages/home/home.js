@@ -22,6 +22,16 @@ class Home extends Component {
                     }
 
   }    
+
+
+  delete(fish){
+        const newState = this.state.fishes;
+            if (newState.indexOf(fish) > -1) {
+              newState.splice(newState.indexOf(fish), 1);
+                this.setState({fishes: this.state.fishes});
+                  fishes: JSON.parse(localStorage.setItem("fishes", JSON.stringify(this.state.fishes)));
+              }
+            }
     
   displayFish() {
     let resultsArray = [];
@@ -34,6 +44,7 @@ class Home extends Component {
                       <p>Location Caught :{fish.location}</p>
                       <p>Description :{fish.description}</p>
                       <p>Date Added : <small>{fish.date}</small></p>
+                      <button type="button" onClick={this.delete.bind(this, fish)} className="btn btn-default btn-xs">Delete</button> &nbsp;
                   <hr></hr>
                   </div>
                   <div className="col-md-4">
