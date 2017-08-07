@@ -1,30 +1,55 @@
 import React, { Component } from 'react';
 import './home.css';
 
+
+function searchingFor(term){
+    return function(x){
+        if (x.species !== undefined)
+            {
+        return x.species.toLowerCase().includes(term.toLowerCase()) || x.location.toLowerCase().includes(term.toLowerCase()) || x.description.toLowerCase().includes(term.toLowerCase()) || !term ;
+            }
+        else
+            {
+                console.log("Search Not Available");
+            }
+    }
+    
+}
 class Home extends Component {
 
   constructor(props) {
+  
     super(props);
     
-        this.state = {
-        fishes: JSON.parse(localStorage.getItem('fishes')) || [],
-        }
-            var fishescheck = JSON.parse(localStorage.getItem('fishes'));
-              if (fishescheck === null || fishescheck.length === 0)
-                {
-                    let fishes = this.state.fishes;
-                    this.setState({fishes});
-                    localStorage.setItem('fishes', JSON.stringify(fishes));
-                }
+    this.state = {
+          fishes: JSON.parse(localStorage.getItem('fishes')) || [],
+                    term: '',
+        
+    }
+      this.searchHandler = this.searchHandler.bind(this);
+
+        var fishescheck = JSON.parse(localStorage.getItem('fishes'));
+          if (fishescheck === null || fishescheck.length === 0)
+            {
+                let fishes = this.state.fishes;
+
                   
-                else{
-                      
-                    }
+   
+    this.setState({fishes});
+                    localStorage.setItem('fishes', JSON.stringify(fishes));
+            }
+              else{
+                  
+                  }
 
-  }    
-
-
-  delete(fish){
+    }    
+    
+    searchHandler(event){
+        this.setState({term: event.target.value})
+        
+    }
+    
+     delete(fish){
         const newState = this.state.fishes;
             if (newState.indexOf(fish) > -1) {
               newState.splice(newState.indexOf(fish), 1);
@@ -33,12 +58,16 @@ class Home extends Component {
               }
             }
     
+    
+    
+    
   displayFish() {
     let resultsArray = [];
-    this.state.fishes.map((fish, i) => {
+    this.state.fishes.filter(searchingFor(this.state.term)).reverse().map((fish, i) => {
       resultsArray.push( 
         <div key={fish.id} className="row justify-content-start">
                   <div className="col-md-6">
+                  
                       <p>Species :{fish.species}</p>
                       <p>Weight in lbs :{fish.weight}</p>
                       <p>Location Caught :{fish.location}</p>
@@ -52,16 +81,16 @@ class Home extends Component {
                   </div>
                   <br></br>
         </div>
-                      );
-                  });
-                  return resultsArray; 
 
-                  }
+        );
+    });
+    return resultsArray; 
 
-    
+  }
 
   render() {
     return (
+
       <div className="home">
           <div className="container">
               <div className="row">
@@ -72,7 +101,12 @@ class Home extends Component {
                     </div>
               </div>
             
-            
+            <form>
+            <input type="text"
+                 onChange={this.searchHandler}
+                 value={this.state.term}
+                  placeholder="Search For a Species"/>  
+                </form>
             <br></br>
             {this.displayFish()}
 
