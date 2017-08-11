@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './home.css';
-
+import DATA from './fishdefault.js';
 
 function searchingFor(term){
     return function(x){
@@ -19,6 +19,10 @@ class Home extends Component {
 
   constructor(props) {
   
+  localStorage.removeItem(DATA);  
+    
+    localStorage.setItem('DATA', JSON.stringify(DATA));
+    
     super(props);
     
     this.state = {
@@ -33,7 +37,7 @@ class Home extends Component {
             {
                 let fishes = this.state.fishes;
 
-                  
+                  fishes.push(DATA["0"], DATA["1"], DATA["2"]);
    
     this.setState({fishes});
                     localStorage.setItem('fishes', JSON.stringify(fishes));
