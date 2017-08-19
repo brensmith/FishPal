@@ -1,3 +1,26 @@
 .container{
 	
 }
+
+.buttonSty{
+  padding: 5px 7px;
+background-color: #FFF;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group.row {
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #CCC;
+}
+
+.searchInp{
+	border: 1px solid #777777;
+  border-radius: 10px;
+  background-color: #FFF;
+  padding: 5px 10px;
+}
+
+
