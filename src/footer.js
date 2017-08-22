@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link } from 'react-router';
-
+import './App.css';
 
 class Footer extends React.Component{
   
@@ -8,9 +8,9 @@ class Footer extends React.Component{
       return (
           <div id="footer">
 	          <nav className="navbar navbar-default navbar-fixed-bottom">
-	              <ul className="nav navbar-nav">
-	                  <li><Link to="/about">About</Link></li>
-	              </ul>
+	              <div className="footcontainer">
+	                  <p className="foot-text">This site was built by Brendan Smith. 2017</p>
+	              </div>
 	          </nav>
           </div>
           );

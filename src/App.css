@@ -36,3 +36,11 @@
     color: #F8F8F8;
     border-color: #E7E7E7;
 }
+
+.footcontainer{
+  padding: 10px;
+  height: 50px;
+  border-color: #E7E7E7;
+  background-color: #ffe;
+  text-decoration-color: #FFF;
+}
