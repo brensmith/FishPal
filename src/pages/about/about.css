@@ -16,3 +16,16 @@
 	margin-left: 40%;
 
 }
+
+.img-round{
+	border-radius: 15px;
+	padding: 8px;
+background-color: #FFF;
+  border: 3px solid #B600FF;
+}
+
+.smalli{
+	color: red;
+	font-size: 1em;
+	font-weight: bold;
+}

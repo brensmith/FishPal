@@ -9,7 +9,7 @@ class Footer extends React.Component{
           <div id="footer">
 	          <nav className="navbar navbar-default navbar-fixed-bottom">
 	              <ul className="nav navbar-nav">
-	                  <li><Link to="/contact">Contact</Link></li>
+	                  <li><Link to="/about">About</Link></li>
 	              </ul>
 	          </nav>
           </div>

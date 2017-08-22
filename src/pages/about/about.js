@@ -3,6 +3,7 @@ import './about.css';
 import './round-about.css';
 
 
+
 class about extends Component {
   render() {
     return (
@@ -11,26 +12,26 @@ class about extends Component {
 			        <div className="row">
 			            <div className="col-md-10">
 			                <h1 className="page-header">About <small>FishPal React SPA. </small></h1>
-			                	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
-				            		
+			                	<h4>FishPal is a Web application aimed at Anglers and fishing enthusiasts. <br></br></h4>
 	                	</div>
 		        	</div>
+		        	<br></br>
 		        	<div className="row justify-content-start">
 			            <div className="col-sm-4">
-			            	<p><small>(Figure 1.)</small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
-	                				<img className="img-round img-responsive img-right" src="http://placehold.it/400x200" alt="Figure 1"></img>
+			            	<p><small className="smalli">(Figure 1.)</small> The User can add an image of the Fish captured by clicking on "Add Image" and selecting the image they wish to upload. The User can select a Species using the dropdown menu. The user can add the weight of the fish. the user can add the location the fish was caught at, and the user can add a description.</p>
+	                				<img className="img-round img-responsive img-right" src="images/addfish.png" alt="Figure 1"></img>
 	                	</div>
 		        	
 		        	
 			            <div className="col-sm-4">
-			            	<p><small>(Figure 2.)</small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
-	                				<img className="img-round img-responsive img-right" src="http://placehold.it/400x200" alt="Figure 2"></img>
+			            	<p><small className="smalli">(Figure 2.)</small> The User can view all saved entry's from the home page. The user can also delete a post by clicking the delete button. The User can edit a post by clicking the edit button for that post.</p>
+	                				<img className="img-round img-responsive img-right" src="images/edit.png" alt="Figure 2"></img>
 	                	</div>
 		        	
 		        	
 			            <div className="col-sm-4">
-			            	<p><small>(Figure 3.)</small> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
-	                				<img className="img-round img-responsive img-right" src="http://placehold.it/400x200" alt="Figure 3"></img>
+			            	<p><small className="smalli">(Figure 3.)</small> The Json Data structure that is saved for the Fish object</p>
+	                				<img className="img-round img-responsive img-right" src="images/json.png" alt="Figure 3"></img>
 	                	</div>
 		        	</div>
 		        	<hr></hr>
