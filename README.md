@@ -47,7 +47,7 @@ The data model for my application is User and Post
 ## App Component Design
 
 <br/><br/>
-<img src="diagram.png" height="200" width="400" border="3"/>
+<img src="Diagram.png" height="200" width="400" border="3"/>
 <br/><br/>
 
 
