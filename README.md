@@ -55,13 +55,13 @@ The data model for my application is User and Post
 
 Below are screenshots of the applications pages
 <br/></br>
-# Home page
+ Home page
 <img src="home.PNG" height="250" width="500" border="3"/>
 <br/></br>
-# Add Fish page
+ Add Fish page
 <img src="addfish.PNG" height="250" width="500" border="3"/>
 <br/></br>
-# About page
+About page
 <img src="about.PNG" height="250" width="500" border="3"/>
 <br/></br>
 
