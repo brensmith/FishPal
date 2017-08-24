@@ -40,14 +40,14 @@ Once the project files have been cloned or downloaded launch a command terminal 
 
 The data model for my application is User and Post
 <br/><br/>
-<img src="model.png" width="400" border="3" align="left"/>
+<img src="model.png" height="200" width="400" border="3" align="left"/>
 
 
 
 ## App Component Design
 
 <br/><br/>
-<img src="diagram.png" width="400" border="3" align="left"/>
+<img src="diagram.png" height="200" width="400" border="3" align="left"/>
 <br/><br/>
 
 
@@ -55,11 +55,11 @@ The data model for my application is User and Post
 
 Below are screenshots of the applications pages
 <br/></br>
-<img src="home.PNG" width="400" border="3" align="left"/>
+<img src="home.PNG" height="200" width="400" border="3" align="left"/>
 <br/></br>
-<img src="addfish.PNG" width="400" border="3" align="left"/>
+<img src="addfish.PNG" height="200" width="400" border="3" align="left"/>
 <br/></br>
-<img src="about.PNG" width="400" border="3" align="left"/>
+<img src="about.PNG" height="200" width="400" border="3" align="left"/>
 <br/></br>
 
 
